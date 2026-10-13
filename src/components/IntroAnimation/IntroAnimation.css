@@ -1,0 +1,412 @@
+/* ==========================================================================
+   SINDHUR MOTORS - INTRO ANIMATION SUITE
+   ========================================================================== */
+
+.intro-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--color-Text-Black-Primary, #060606);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  outline: none;
+  border: none;
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.8s;
+}
+
+.intro-container.intro-fading-out {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Ambient Backdrop Glow Effects */
+.intro-ambient-glow {
+  display: none;
+}
+
+.intro-ambient-glow.glow-neutral {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 60%
+  );
+}
+
+/* Cinematic Vignette Overlay */
+.intro-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 45%,
+    rgba(2, 3, 5, 0.6) 80%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Subtle Film Grain / Grid (Optional High-End Texture) */
+.intro-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 40%,
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Frame Stage Area */
+.intro-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   FRAME 1: TEASER VIDEO
+   ========================================================================== */
+
+.frame-video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  animation: fadeIn 0.8s ease forwards;
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s ease;
+  will-change: opacity, transform, filter;
+}
+
+.frame-video-container.video-leaving {
+  opacity: 0;
+  transform: scale(1.02);
+  filter: blur(4px);
+}
+
+.intro-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .intro-video-element {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+  }
+}
+
+/* Cinematic Letterbox Aspect Ratio styling if desired */
+.frame-video-container.letterbox-mode {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+/* ==========================================================================
+   FRAME 2: TAGLINE ("The future has a new name")
+   ========================================================================== */
+
+.frame-tagline-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-Text-Black-Primary, #060606);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+  outline: none;
+  border: none;
+}
+
+.frame-tagline-container.tagline-leaving .tagline-text {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+  filter: blur(4px);
+}
+
+.tagline-glow-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 279px;
+  height: 279px;
+  border-radius: 279px;
+  opacity: 0.7;
+  background: #2d449c;
+  filter: blur(150px);
+  pointer-events: none;
+  z-index: 1;
+  animation: glowBlobPulse 3.6s ease-in-out infinite alternate;
+  will-change: transform, opacity, filter;
+}
+
+@keyframes glowBlobPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.88);
+    opacity: 0.55;
+    filter: blur(130px);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.28);
+    opacity: 0.82;
+    filter: blur(160px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.68;
+    filter: blur(145px);
+  }
+}
+
+.tagline-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  max-width: 1200px;
+  animation: taglineEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    filter 0.5s ease;
+  will-change: opacity, transform, filter;
+}
+
+.tagline-highlight {
+  text-align: center;
+  font-family: "Manrope", sans-serif;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: linear-gradient(
+    90deg,
+    var(--color-Denim-Blue-Primary, #30469d) 0%,
+    #0c55f3 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline-rest {
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+@media (max-width: 768px) {
+  .tagline-highlight,
+  .tagline-rest {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tagline-highlight,
+  .tagline-rest {
+    font-size: 28px;
+  }
+}
+
+/* ==========================================================================
+   FRAME 3: BRAND LOGO (Logo.svg)
+   ========================================================================== */
+
+.frame-brand-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-Text-Black-Primary, #060606);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+  outline: none;
+  border: none;
+}
+
+.frame-brand-container.brand-leaving .brand-logo-wrapper {
+  opacity: 0;
+  transform: scale(1.02);
+  filter: blur(4px);
+}
+
+.brand-glow-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 279px;
+  height: 279px;
+  border-radius: 279px;
+  opacity: 0.7;
+  background: #2d449c;
+  filter: blur(150px);
+  pointer-events: none;
+  z-index: 1;
+  animation: glowBlobPulse 3.6s ease-in-out infinite alternate;
+  will-change: transform, opacity, filter;
+}
+
+.brand-logo-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 0.5rem;
+  animation: brandEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    filter 0.5s ease;
+  will-change: opacity, transform, filter;
+}
+
+.brand-logo-img {
+  width: 577px;
+  height: 101px;
+  aspect-ratio: 577/101;
+  max-width: 90vw;
+  object-fit: contain;
+  display: block;
+}
+
+/* Moving Light Sheen Beam across Logo */
+.brand-light-sheen {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 35%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(45, 68, 156, 0.25) 65%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: logoSheenSweep 2.2s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes logoSheenSweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS & KEYFRAMES
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    text-shadow:
+      0 0 25px rgba(43, 112, 240, 0.65),
+      0 0 50px rgba(43, 112, 240, 0.35);
+  }
+  50% {
+    text-shadow:
+      0 0 35px rgba(43, 112, 240, 0.95),
+      0 0 70px rgba(43, 112, 240, 0.55);
+  }
+}
+
+@keyframes taglineEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes brandEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(8px) drop-shadow(0 0 10px rgba(45, 68, 156, 0.2));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0) drop-shadow(0 0 35px rgba(45, 68, 156, 0.5));
+  }
+}

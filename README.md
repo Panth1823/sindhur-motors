@@ -1,1 +1,0 @@
-# sindhur-motors
