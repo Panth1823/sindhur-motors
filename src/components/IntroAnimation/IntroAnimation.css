@@ -95,17 +95,6 @@
   justify-content: center;
   background-color: #000000;
   animation: fadeIn 0.8s ease forwards;
-  transition:
-    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.5s ease;
-  will-change: opacity, transform, filter;
-}
-
-.frame-video-container.video-leaving {
-  opacity: 0;
-  transform: scale(1.02);
-  filter: blur(4px);
 }
 
 .intro-video-element {

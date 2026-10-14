@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import introVideo from "../../assets/Intro/Intro.mp4";
 
 export default function Frame1Video({ onNext }) {
   const videoRef = useRef(null);
-  const [isLeaving, setIsLeaving] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -13,32 +12,22 @@ export default function Frame1Video({ onNext }) {
       console.warn("Video play triggered:", err);
     });
 
-    // Video duration is 2.5s: begin smooth fade out at 2.1s, then advance at 2.6s
-    const fadeTimer = setTimeout(() => {
-      setIsLeaving(true);
-    }, 2100);
-
-    const advanceTimer = setTimeout(() => {
+    // Fallback in case onEnded event does not fire
+    const fallbackTimer = setTimeout(() => {
       onNext?.();
-    }, 2600);
+    }, 2800);
 
     return () => {
-      clearTimeout(fadeTimer);
-      clearTimeout(advanceTimer);
+      clearTimeout(fallbackTimer);
     };
   }, [onNext]);
 
   const handleEnded = () => {
-    setIsLeaving(true);
-    setTimeout(() => {
-      onNext?.();
-    }, 450);
+    onNext?.();
   };
 
   return (
-    <div
-      className={`frame-video-container ${isLeaving ? "video-leaving" : ""}`}
-    >
+    <div className="frame-video-container">
       <video
         ref={videoRef}
         src={introVideo}
