@@ -132,7 +132,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 20px;
   overflow: hidden;
   outline: none;
   border: none;
@@ -223,24 +223,6 @@
   line-height: normal;
 }
 
-@media (max-width: 768px) {
-  .tagline-highlight,
-  .tagline-rest {
-    font-size: 38px;
-  }
-}
-
-@media (max-width: 480px) {
-  .tagline-highlight,
-  .tagline-rest {
-    font-size: 28px;
-  }
-}
-
-/* ==========================================================================
-   FRAME 3: BRAND LOGO (Logo.svg)
-   ========================================================================== */
-
 .frame-brand-container {
   position: absolute;
   inset: 0;
@@ -251,7 +233,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 20px;
   overflow: hidden;
   outline: none;
   border: none;
@@ -397,5 +379,79 @@
     opacity: 1;
     transform: scale(1);
     filter: blur(0) drop-shadow(0 0 35px rgba(45, 68, 156, 0.5));
+  }
+}
+@media screen and (max-width: 768px) {
+  .tagline-glow-blob {
+    width: 300px !important;
+    height: 300px !important;
+    aspect-ratio: 1/1 !important;
+    background: #2d449c !important;
+    opacity: 0.7 !important;
+    filter: blur(100px) !important;
+  }
+
+  .tagline-text {
+    max-width: 285px;
+    width: 100%;
+    display: block;
+    white-space: normal;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 36px;
+    font-style: normal;
+    line-height: 100%;
+  }
+
+  .tagline-highlight {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 120%;
+    display: inline;
+    background: linear-gradient(
+      90deg,
+      var(--color-Denim-Blue-Primary, #30469d) 0%,
+      #0c55f3 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .tagline-rest {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 120%;
+    display: inline;
+    color: #fff;
+    font-weight: 500;
+    line-height: 100%;
+  }
+
+  .frame-brand-container {
+    padding: 20px !important;
+  }
+
+  .brand-glow-blob {
+    width: 300px !important;
+    height: 300px !important;
+    aspect-ratio: 1/1 !important;
+    background: #2d449c !important;
+    opacity: 0.7 !important;
+    filter: blur(100px) !important;
+  }
+
+  .brand-logo-wrapper {
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .brand-logo-img {
+    width: 271px !important;
+    height: 47px !important;
+    aspect-ratio: 271/47 !important;
+    max-width: 90vw !important;
+    object-fit: contain !important;
   }
 }

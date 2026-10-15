@@ -1,5 +1,15 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/Navbar";
+import ContactBanner from "../components/ContactBanner";
+import Footer from "../components/Footer";
 
 export default function Contact() {
-  return <h1>Contact</h1>
+  return (
+    <div>
+      <Navbar />
+      <ContactBanner />
+      <Footer />
+    </div>
+  );
 }
+
