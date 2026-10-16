@@ -497,8 +497,8 @@ button {
 }
 
 .form-group textarea {
-  resize: vertical;
-  min-height: 80px;
+  resize: none;
+  max-height: 80px;
 }
 
 .contact-submit-btn {
@@ -797,8 +797,8 @@ button {
   }
 
   .banner {
-    height: calc(100vh - 48px);
-    min-height: calc(100vh - 48px);
+    height: calc(100vh - 100px);
+    max-height: calc(100vh - 48px);
     background-size: cover;
   }
 
