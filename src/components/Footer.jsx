@@ -1,6 +1,6 @@
 import React from "react";
-import NavLogo1 from "../assets/Footer/logo2.png";
-import NavLogo2 from "../assets/Navbar/logo2.png";
+import NavLogo1 from "../assets/Footer/logo2.webp";
+import NavLogo2 from "../assets/Navbar/logo2.webp";
 import SindhurSvg from "../assets/Footer/sindhur.svg";
 
 export default function Footer() {

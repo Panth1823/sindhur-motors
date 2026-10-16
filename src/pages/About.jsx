@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
-import AboutBannerBg from "../assets/About/Banner.png";
+import AboutBannerBg from "../assets/About/Banner.webp";
 
 export default function About() {
   return (

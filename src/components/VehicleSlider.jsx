@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
-import BgImg from "../assets/Home/VehicleSlider/Bg.png";
-import VehicleImg from "../assets/Home/VehicleSlider/1.png";
-import VehicleImg1 from "../assets/Home/VehicleSlider/2.png";
-import VehicleImg2 from "../assets/Home/VehicleSlider/3.png";
-import VehicleImg3 from "../assets/Home/VehicleSlider/4.png";
-import VehicleImg4 from "../assets/Home/VehicleSlider/5.png";
-import VehicleImg5 from "../assets/Home/VehicleSlider/6.png";
+import BgImg from "../assets/Home/VehicleSlider/Bg.webp";
+import VehicleImg from "../assets/Home/VehicleSlider/1.webp";
+import VehicleImg1 from "../assets/Home/VehicleSlider/2.webp";
+import VehicleImg2 from "../assets/Home/VehicleSlider/3.webp";
+import VehicleImg3 from "../assets/Home/VehicleSlider/4.webp";
+import VehicleImg4 from "../assets/Home/VehicleSlider/5.webp";
+import VehicleImg5 from "../assets/Home/VehicleSlider/6.webp";
 
 const slides = [
   {

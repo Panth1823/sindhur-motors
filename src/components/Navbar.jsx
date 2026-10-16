@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavLogo1 from "../assets/Navbar/logo1.png";
-import NavLogo2 from "../assets/Navbar/logo2.png";
+import NavLogo1 from "../assets/Navbar/logo1.webp";
+import NavLogo2 from "../assets/Navbar/logo2.webp";
 import { useRoute } from "../lib/router.js";
 
 export default function Navbar() {

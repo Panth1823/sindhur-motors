@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultBannerBg from "../assets/Home/Banner/Banner.png";
+import DefaultBannerBg from "../assets/Home/Banner/Banner.webp";
 
 export default function Banner({ bg = DefaultBannerBg, className = "", children }) {
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logoSvg from "../../assets/Intro/Logo.svg";
 
-export default function Frame3Brand({ onNext, duration = 3200 }) {
+export default function Frame3Brand({ onNext, duration = 4200 }) {
   const [isLeaving, setIsLeaving] = useState(false);
 
   useEffect(() => {

@@ -61,7 +61,7 @@ export default function IntroAnimation({ onFinish }) {
           <Frame2Tagline onNext={handleNext} duration={2000} />
         )}
         {currentStep === 2 && (
-          <Frame3Brand onNext={handleNext} duration={3200} />
+          <Frame3Brand onNext={handleNext} duration={4200} />
         )}
       </div>
     </div>
