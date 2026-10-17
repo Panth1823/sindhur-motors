@@ -11,10 +11,10 @@ export default function Footer() {
           <a href="#/" className="footer-brand">
             <img
               src={NavLogo2}
-              alt="Sindhur Motors Icon"
+              alt="Sindhur Motos Icon"
               className="footer-logo2"
             />
-            <img src={NavLogo1} alt="Sindhur Motors" className="footer-logo1" />
+            <img src={NavLogo1} alt="Sindhur Motos" className="footer-logo1" />
           </a>
           <nav className="footer-nav-links">
             <a href="#/">Home</a>

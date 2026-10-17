@@ -7,16 +7,53 @@ export default function ContactBanner() {
     phone: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: null,
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus({ submitting: true, submitted: false, error: null });
+
+    try {
+      const response = await fetch("https://formspree.io/f/xkjoynwa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus({ submitting: false, submitted: true, error: null });
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        const data = await response.json().catch(() => ({}));
+        const errorMsg =
+          data?.errors?.map((err) => err.message).join(", ") ||
+          "Submission failed. Please try again.";
+        setStatus({ submitting: false, submitted: false, error: errorMsg });
+      }
+    } catch (err) {
+      setStatus({
+        submitting: false,
+        submitted: false,
+        error: "Network error. Please try again.",
+      });
+    }
   };
 
   return (
@@ -70,7 +107,12 @@ export default function ContactBanner() {
         </div>
 
         <div className="contact-form-wrapper">
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form
+            className="contact-form"
+            onSubmit={handleSubmit}
+            action="https://formspree.io/f/xkjoynwa"
+            method="POST"
+          >
             <div className="form-group">
               <label htmlFor="fullName">Full name*</label>
               <input
@@ -122,8 +164,32 @@ export default function ContactBanner() {
               />
             </div>
 
-            <button type="submit" className="contact-submit-btn">
-              {submitted ? "Request Submitted" : "Submit Request"}
+            {status.error && (
+              <p style={{ color: "#f87171", fontSize: "14px", margin: "0" }}>
+                {status.error}
+              </p>
+            )}
+
+            {status.submitted && (
+              <p style={{ color: "#4ade80", fontSize: "14px", margin: "0" }}>
+                Thank you! Your request has been sent.
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className="contact-submit-btn"
+              disabled={status.submitting}
+              style={{
+                cursor: status.submitting ? "not-allowed" : "pointer",
+                opacity: status.submitting ? 0.7 : 1,
+              }}
+            >
+              {status.submitting
+                ? "Submitting..."
+                : status.submitted
+                ? "Request Submitted ✓"
+                : "Submit Request"}
             </button>
           </form>
         </div>

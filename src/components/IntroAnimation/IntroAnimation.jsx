@@ -43,7 +43,7 @@ export default function IntroAnimation({ onFinish }) {
     <div
       className={`intro-container ${isFadingOut ? "intro-fading-out" : ""}`}
       role="dialog"
-      aria-label="Sindhur Motors Intro Sequence"
+      aria-label="Sindhur Motos Intro Sequence"
     >
       {/* Ambient Glow */}
       <div className={`intro-ambient-glow ${glowClass}`} />

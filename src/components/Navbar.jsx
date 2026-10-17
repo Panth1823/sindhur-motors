@@ -24,8 +24,12 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <a href="#/" className="navbar-brand" onClick={closeMenu}>
-          <img src={NavLogo2} alt="Sindhur Motors Icon" className="navbar-logo2" />
-          <img src={NavLogo1} alt="Sindhur Motors" className="navbar-logo1" />
+          <img
+            src={NavLogo2}
+            alt="Sindhur Motos Icon"
+            className="navbar-logo2"
+          />
+          <img src={NavLogo1} alt="Sindhur Motos" className="navbar-logo1" />
         </a>
         <div className="navbar-tabs">
           <div className="navbar-links">

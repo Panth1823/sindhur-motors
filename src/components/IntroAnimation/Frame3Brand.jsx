@@ -31,7 +31,7 @@ export default function Frame3Brand({ onNext, duration = 4200 }) {
 
       {/* Brand Logo Image with smooth sheen glow */}
       <div className="brand-logo-wrapper">
-        <img src={logoSvg} alt="Sindhur Motors" className="brand-logo-img" />
+        <img src={logoSvg} alt="Sindhur Motos" className="brand-logo-img" />
         <div className="brand-light-sheen" />
       </div>
     </div>
